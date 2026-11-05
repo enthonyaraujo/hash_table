@@ -25,12 +25,18 @@ Passo 2: Dividir em partes iguais
 
 - ca
 - sa
+  
 $k_{1} = ca$ e $k_{2} = sa$
 
 Passo 3: Cada letra vai virar um número:
 
-- $k_{1} =$ ca = $99*256 + 97 = 25441$
-- $k_{2} =$ sa = $115*256 + 97 = 29537$
+$$
+k_{1} = ca = 99*256 + 97 = 25441
+$$
+
+$$
+k_{2} = sa = 115*256 + 97 = 29537
+$$
 
 *obs: 256 -> (0 a 255)*
 
@@ -44,31 +50,39 @@ Passo 5: Temos que fazer isso caber na tabela:
 $$
 h(k) = k \ mod \ m
 $$
+
 O nosso valor da tabela foi definido como  $m = 20011$,
 
 $$
 (h(54978) = 54978 \ mod \ 20011)
 $$
+
 $$
 h(54978) = 14956
 $$
+
 Ou seja, ela vai para posição 14956 da tabela.
 
 ## C2: Sondagem Linear:
 
 A sondagem linear é o método utilizado para previnir colisões
+
 $$
 p_{i}(k) = (h(k) + i) \ mod \ m;
 $$
+
 Pegando o exemplo anterior, se quisermos colocar a palavra **"saca"**, notamos que ela vai dar a mesma soma de 14956, e ouve uma colisão. Vamos usar a sondagem linear para evitar isso.
 Inicialmente $i=0$, quando há colisão ela vai incrementando, portanto o valor agora é $i=1$:
+
 $$
 p_{1}(14956) = (54978+1) \ mod \ 20011)
 $$
+
 $$
 	p_{1}(14956) = 14957
 $$
-Como ==**14957**== está vazia, ele vai para essa posição.
+
+Como `14957`está vazia, ele vai para essa posição.
 ## A4: Índice de palavras; Chave: **Palavra normalizada**; Valor armazenado: **Frequência, ocorrências**
 
 A aplicação A4 recebe um texto, conta **quantas vezes cada palavra aparece** e guarda o resultado na tabela hash. A palavra é a chave, e o valor guardado junto com ela é a frequência e as ocorrências.
