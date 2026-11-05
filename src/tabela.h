@@ -25,5 +25,7 @@ void inicializarTabela(void);
 int calcularHash(const char *palavra);
 int h_sondagem(const char *k, int i);
 int inserir(const char *palavra);
+int buscar(const char *palavra);
+
 
 #endif

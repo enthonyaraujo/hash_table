@@ -118,3 +118,33 @@ int inserir(const char *palavra){
     // se a tabela estiver cheia
     return -1;
 }
+
+
+int buscar(const char *palavra) {
+
+    // aqui verifica se a palavra é válida
+    if (palavra == NULL || palavra[0] == '\0') {
+        return -1;
+    }
+
+    // percorre a sequência de sondagem
+    for (int i = 0; i < m; i++) {
+
+        int posicao = h_sondagem(palavra, i);
+
+        // se a posição nunca utilizada a palavra não é encontrada
+        if (tabela[posicao].estado == VAZIO) {
+            return -1;
+        }
+
+        // verifica se a posição contém a palavra
+        if (tabela[posicao].estado == OCUPADO) {
+
+            if (strcmp(tabela[posicao].palavra, palavra) == 0) {
+                return posicao;
+            }
+        }
+    }
+
+    return -1;
+}
