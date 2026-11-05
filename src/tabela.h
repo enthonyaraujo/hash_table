@@ -26,5 +26,6 @@ int h_sondagem(const char *k, int i); // funcao para fazer a sondagem linear (tr
 int inserir(const char *palavra); // inserir palavras
 int buscar(const char *palavra); // buscar palavras
 int remover(const char *palavra); // remover palavras
+int atualizar(const char *palavra, int novaFrequencia); // atualizar a frequencia da palavra
 
 #endif

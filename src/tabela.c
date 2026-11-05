@@ -166,3 +166,38 @@ int remover(const char *palavra){
 
     return 1;
 }
+
+
+ // função atualizar
+int atualizar(const char *palavra, int novaFrequencia) {
+
+    // faz a verificação se a palavra é válida
+    if (palavra == NULL || palavra[0] == '\0') {
+        return -1;
+    }
+
+    // faz a verificação do tamanho da palavra
+    if (strlen(palavra) >= TAM_PALAVRA) {
+        return -1;
+    }
+
+    // frequência deve ser positiva
+    if (novaFrequencia <= 0) {
+        return -1;
+    }
+
+    // busca a posição da palavra
+    int posicao = buscar(palavra);
+
+    // verifica se a palavra existe
+    if (posicao == -1) {
+        return 0;
+    }
+
+    // atualiza a frequência
+    tabela[posicao].frequencia = novaFrequencia;
+
+    // se der certo, atualização realizada
+    return 1;
+}
+
