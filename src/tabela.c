@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdio.h>
 #include "tabela.h"
 
 Entrada tabela[m]; // cria o vetor de estruturas com 20.011 posições
@@ -12,7 +13,6 @@ void inicializarTabela(void){
         tabela[i].frequencia = 0; // zera a freq
         tabela[i].estado = VAZIO; 
     }
-    
 }
 
 // FUNÇÃO DE HASH - DOBRA
@@ -113,8 +113,6 @@ int inserir(const char *palavra){
 
     return 1;
     }
-
-
     // se a tabela estiver cheia
     return -1;
 }
@@ -124,6 +122,7 @@ int buscar(const char *palavra) {
 
     // aqui verifica se a palavra é válida
     if (palavra == NULL || palavra[0] == '\0') {
+        printf("Palavra Invalida\n");
         return -1;
     }
 
@@ -147,4 +146,23 @@ int buscar(const char *palavra) {
     }
 
     return -1;
+}
+
+int remover(const char *palavra){
+
+    int posicao = buscar(palavra); //precisamos procurar a palavra na tabela primeiro
+
+    if (posicao == -1)
+    {
+        return -1; // invalido
+    }
+
+    // limpar os dados da palavra
+    tabela[posicao].palavra[0] = '\0';
+    tabela[posicao].frequencia = 0;
+
+    // depois de limpar atualiza o estado
+    tabela[posicao].estado = REMOVIDO;
+
+    return 1;
 }

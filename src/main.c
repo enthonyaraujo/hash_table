@@ -29,5 +29,11 @@ int main(void) {
     printf("Posicao de casa: %d\n", buscar("casa"));
     printf("Posicao de saca: %d\n", buscar("saca"));
     printf("Posicao de bola: %d\n", buscar("bola"));
+   
+
+    remover("casa");
+
+    printf("Posicao de casa: %d\n", buscar("casa"));
+
     return 0;
 }
