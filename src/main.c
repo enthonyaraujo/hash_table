@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "tabela.h"
 
@@ -10,30 +9,15 @@ int main(void) {
     inserir("saca");
     inserir("casa");
 
-    int indice = calcularHash("casa");
+    atualizar("saca", 5);
 
-    printf("h(casa) = %d\n\n", indice);
-
-    for (int i = 0; i < 3; i++) {
-
-        int posicao = h_sondagem("casa", i);
-
-        if (tabela[posicao].estado == OCUPADO) {
-            printf("Posicao %d: %s | Frequencia: %d\n",
-                   posicao,
-                   tabela[posicao].palavra,
-                   tabela[posicao].frequencia);
-        }
-    }
-
-    printf("Posicao de casa: %d\n", buscar("casa"));
-    printf("Posicao de saca: %d\n", buscar("saca"));
-    printf("Posicao de bola: %d\n", buscar("bola"));
-   
+    printf("ANTES DA REMOCAO\n");
+    exibirEstrutura();
 
     remover("casa");
 
-    printf("Posicao de casa: %d\n", buscar("casa"));
+    printf("\nDEPOIS DA REMOCAO\n");
+    exibirEstrutura();
 
     return 0;
 }

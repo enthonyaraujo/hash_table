@@ -27,5 +27,5 @@ int inserir(const char *palavra); // inserir palavras
 int buscar(const char *palavra); // buscar palavras
 int remover(const char *palavra); // remover palavras
 int atualizar(const char *palavra, int novaFrequencia); // atualizar a frequencia da palavra
-
+void exibirEstrutura(void);
 #endif

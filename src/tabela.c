@@ -201,3 +201,50 @@ int atualizar(const char *palavra, int novaFrequencia) {
     return 1;
 }
 
+
+ // funcao para exibir a estrutura da tabela hash
+void exibirEstrutura(void) {
+    int ocupadas = 0;
+    int removidas = 0;
+
+    printf("\n========== ESTRUTURA DA TABELA HASH ==========\n");
+    printf("%-8s | %-9s | %-20s | %s\n",
+           "Indice", "Estado", "Palavra", "Frequencia");
+    printf("---------------------------------------------------------------\n");
+
+    // percorre as m posicoes da tabela
+    for (int i = 0; i < m; i++) {
+
+        if (tabela[i].estado == OCUPADO) {
+
+            // mostra a palavra e sua frequencia
+            printf("%-8d | %-9s | %-20s | %d\n",
+                   i, "OCUPADO",
+                   tabela[i].palavra,
+                   tabela[i].frequencia);
+
+            ocupadas++;
+        }
+        else if (tabela[i].estado == REMOVIDO) {
+
+            // a palavra foi apagada, mas a posicao continua marcada
+            printf("%-8d | %-9s | %-20s | %s\n",
+                   i, "REMOVIDO", "---", "---");
+
+            removidas++;
+        }
+
+        // nao imprime cada posicao VAZIO para evitar 20.011 linhas
+    }
+
+    int vazias = m - ocupadas - removidas;
+
+    printf("---------------------------------------------------------------\n");
+    printf("Capacidade total: %d\n", m);
+    printf("Ocupadas: %d | Removidas: %d | Vazias: %d\n",
+           ocupadas, removidas, vazias);
+
+    printf("Fator de carga (alpha = n/m): %.6f\n",
+           (double)ocupadas / m);
+}
+
