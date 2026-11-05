@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <string.h>
 #include "tabela.h"
 
 Entrada tabela[m]; // cria o vetor de estruturas com 20.011 posições
@@ -20,26 +20,101 @@ int calcularHash(const char *palavra){
 
     // variaveis auxiliares
     unsigned long long k = 0; // acumula os valores do blocos k = k1 + k2 + k3 ....
-    unsigned int k_i = 0; // são os blocos k1, k2, k3, k4 ....
+    unsigned int bloco = 0; // são os blocos k1, k2, k3, k4 ....
     int contador = 0;
 
     for (int i = 0; palavra[i] != '\0'; i++) // percorre a palavra toda até chegar no fim dela
     {
-        k_i = k_i * 256  + (unsigned char)palavra[i];
+        bloco = bloco * 256  + (unsigned char)palavra[i];
         contador++;
 
         if (contador == 2)
         {
-            k += k_i;
-            k_i = 0;
+            k += bloco;
+            bloco = 0;
             contador = 0;
         }    
     }
     if (contador > 0)
     {
-        k += k_i;
+        k += bloco;
 
     }
-    return(int)(k % m); // (h mod m)
+    return(int)(k % m); // (h(k) mod m)
+}
 
+//funcao para fazer a sondagem linear
+int h_sondagem(const char *k, int i) {
+    return (calcularHash(k) + i) % m;
+}
+
+// função inserir
+int inserir(const char *palavra){
+
+    if (palavra == NULL || palavra[0] == '\0')
+    {
+        return -1;
+    }
+    if (strlen(palavra) >= TAM_PALAVRA)
+    {
+        return -1;
+    }
+
+    int primeiroRemovido = -1;
+
+    for (int i = 0; i < m; i++)
+    {
+        // chama a funcao sondagem e faz a sondagem linear
+        int posicao = h_sondagem(palavra,i);
+        
+        // verificar se a posição na tabela que a palavra vai está ocupada
+        if (tabela[posicao].estado == OCUPADO)
+        {
+            // se tiver ocupado, precisamos verificar tambem se a palavra ja existe
+            if (strcmp(tabela[posicao].palavra, palavra) == 0){
+                tabela[posicao].frequencia++;
+                return 0;
+            }
+
+        }
+
+        // verificar se esta removida
+        else if (tabela[posicao].estado == REMOVIDO)
+        {
+            if (primeiroRemovido == -1)
+            {
+                primeiroRemovido = posicao;
+            }
+            
+        }
+        
+        // verificar se a posicao esta vazia
+        else
+        {
+            if (primeiroRemovido != -1)
+            {
+                posicao = primeiroRemovido;
+            }
+
+            strcpy(tabela[posicao].palavra, palavra);
+            tabela[posicao].frequencia = 1;
+            tabela[posicao].estado = OCUPADO;
+
+            return 1;
+        }
+    }
+
+    // caso só existam posições ocupadas ou removidas
+    if (primeiroRemovido != -1) {
+
+    strcpy(tabela[primeiroRemovido].palavra, palavra);
+    tabela[primeiroRemovido].frequencia = 1;
+    tabela[primeiroRemovido].estado = OCUPADO;
+
+    return 1;
+    }
+
+
+    // se a tabela estiver cheia
+    return -1;
 }

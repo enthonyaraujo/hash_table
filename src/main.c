@@ -1,13 +1,30 @@
+
 #include <stdio.h>
 #include "tabela.h"
 
-int main(){
-    inicializarTabela();
-    printf("Tabela Iniciada....\n");
+int main(void) {
 
-    printf("casa: %d\n", calcularHash("casa"));
-    printf("saca: %d\n", calcularHash("saca"));
-    printf("dado: %d\n", calcularHash("dado"));
-    
+    inicializarTabela();
+
+    inserir("casa");
+    inserir("saca");
+    inserir("casa");
+
+    int indice = calcularHash("casa");
+
+    printf("h(casa) = %d\n\n", indice);
+
+    for (int i = 0; i < 3; i++) {
+
+        int posicao = h_sondagem("casa", i);
+
+        if (tabela[posicao].estado == OCUPADO) {
+            printf("Posicao %d: %s | Frequencia: %d\n",
+                   posicao,
+                   tabela[posicao].palavra,
+                   tabela[posicao].frequencia);
+        }
+    }
+
     return 0;
 }
