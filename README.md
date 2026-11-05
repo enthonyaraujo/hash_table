@@ -127,6 +127,6 @@ Um índice de palavras faz muita busca e atualização ("essa palavra já existe
 ## Compilar:
 
 ```bash
-gcc -Wall -Wextra -std=c11 src/main.c src/tabela.c -o build/tabela_hash
+gcc -Wall -Wextra -std=c11 src/main.c src/tabela.c -o tabela_hash
 ``` 
 
