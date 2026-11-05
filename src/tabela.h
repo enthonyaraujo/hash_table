@@ -1,7 +1,7 @@
 #ifndef TABELA_H
 #define TABELA_H
 
-#define CAPACIDADE 20011 // quantidade de posições da tabela hash
+#define m 20011 // quantidade de posições da tabela hash
 #define TAM_PALAVRA 64 // quantidade de bytes para armazenar cada palavra
 
 typedef enum{ // criar aqui os 3 possiveis estados para uma posicao na tabela
@@ -19,8 +19,9 @@ typedef struct entrada // entrada representa uma posicao na tabela
 
 } Entrada; 
 
-extern Entrada tabela[CAPACIDADE];
+extern Entrada tabela[m];
 
 void inicializarTabela(void);
+int calcularHash(const char *palavra);
 
 #endif

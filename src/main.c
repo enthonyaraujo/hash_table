@@ -5,24 +5,9 @@ int main(){
     inicializarTabela();
     printf("Tabela Iniciada....\n");
 
-    for (int i = 0; i < 5; i++)
-    {
-        printf("Posição %d: ",i);
-    
-        if (tabela[i].estado == VAZIO){
-            printf("VAZIO\n");
-        }
-        else if (tabela[i].estado == OCUPADO)
-        {
-            printf("OCUPADO\n");
-        }
-        else
-        {
-            printf("OCUPADO\n");
-        }
-        
-        
-    }
+    printf("casa: %d\n", calcularHash("casa"));
+    printf("saca: %d\n", calcularHash("saca"));
+    printf("dado: %d\n", calcularHash("dado"));
     
     return 0;
 }
