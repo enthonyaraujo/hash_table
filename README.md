@@ -6,13 +6,13 @@
 
 ### Configuração **40: E1.1 / H4 / C2 / A4**; 
 
-- E1.1 - vetor de capacidade fixa;
+- E1.1 - Vetor de capacidade fixa;
 
-- H4: hash por dobra;
+- H4: Hash por dobra;
 
-- C2: sondagem linear
+- C2: Sondagem linear
 
-- A4: índice de palavras. 
+- A4: Índice de palavras;
 
 Linguagem C11, sem tabela hash pronta ou bibliotecas externas.
 
@@ -92,10 +92,3 @@ A mesma sequência e a mesma regra de medição são usadas em cada repetição.
 A tabela não redimensiona. Tempos dependem da máquina e da resolução de `clock()`.
 Resultados e interpretação estão em `resultados/`.
 
-## Entrega
-
-Repositório GitHub com código, README, dados/testes, resultados e slides finais.
-A apresentação Beamer está em `slides/apresentacao.pdf`, com fonte editável em
-`slides/apresentacao.tex`. São 27 slides, com explicações e demonstrações finais.
-A divisão das falas e a recompilação estão em `docs/ROTEIRO_APRESENTACAO.md`.
-Data e forma de apresentação: conferir SIGAA.
