@@ -78,7 +78,6 @@ a indexação registra frequência e linhas distintas. Atualizar mantém chave e
 | `src/aplicacao.h`, `src/aplicacao.c` | Normalização, leitura, frequência e linhas |
 | `src/main.c` | Menu |
 | `src/experimentos.c` | Medições da análise experimental |
-| `resultados/testes_manuais.md` | Roteiro e registro dos testes pelo menu |
 | `dados/` | Texto e entradas das demonstrações |
 | `resultados/` | Saídas dos testes, médias e análise |
 | `.gitignore` | Executáveis e objetos gerados que não entram no Git |
