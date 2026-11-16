@@ -2,17 +2,24 @@
 
 **Enthony e Douglas · Prof. Kennedy Lopes**
 
-Configuração **40: E1.1 / H4 / C2 / A4**: vetor de capacidade fixa,
-hash por dobra, sondagem linear e índice de palavras. Linguagem C11,
-sem tabela hash pronta ou bibliotecas externas.
+### Configuração **40: E1.1 / H4 / C2 / A4**; 
+
+- E1.1 - vetor de capacidade fixa;
+
+- H4: hash por dobra;
+
+- C2: sondagem linear
+
+- A4: índice de palavras. 
+
+Linguagem C11, sem tabela hash pronta ou bibliotecas externas.
 
 ## Execução
 
 Na pasta do projeto, compile diretamente com GCC:
 
 ```bash
-gcc -std=c11 -Wall -Wextra -O2 src/tabela.c src/aplicacao.c src/main.c -o hashapp
-gcc -std=c11 -Wall -Wextra -O2 src/tabela.c src/experimentos.c -o experimentos
+make all
 ```
 
 O primeiro comando gera o aplicativo; o segundo gera somente o programa de medições.
