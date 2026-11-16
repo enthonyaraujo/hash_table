@@ -38,6 +38,10 @@ O roteiro com entradas, resultados esperados e obtidos está em
 `resultados/testes_manuais.md`. Para salvar as medições:
 
 ```bash
+make run
+
+# ou
+
 mkdir -p resultados
 ./experimentos > resultados/experimentos_config40.md
 ```
