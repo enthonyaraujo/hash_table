@@ -6,4 +6,4 @@ experimentos:
 	mkdir -p resultados
 	./experimentos > resultados/experimentos_config40.md
 clean: 
-	rm -rf experimentos hashapp
+	rm -rf experimentos hashapp /resultados
