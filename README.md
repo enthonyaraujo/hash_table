@@ -1,4 +1,4 @@
-# Tabela hash — ED II
+# Tabela hash — Laboratório de AED II
 
 **Prof: Kennedy Reurison Lopes**
 
