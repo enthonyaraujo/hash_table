@@ -1,6 +1,8 @@
 # Tabela hash — ED II
 
-**Enthony e Douglas · Prof. Kennedy Lopes**
+**Prof: Kennedy Reurison Lopes**
+
+**Alunos: Enthony Araujo de Oliveira e Douglas Patrick Cardozo Freitas** 
 
 ### Configuração **40: E1.1 / H4 / C2 / A4**; 
 
@@ -16,7 +18,7 @@ Linguagem C11, sem tabela hash pronta ou bibliotecas externas.
 
 ## Execução
 
-Na pasta do projeto, compile diretamente com GCC:
+Na pasta do projeto, compile diretamente com Makefile com GCC:
 
 ```bash
 make all
@@ -76,7 +78,7 @@ a indexação registra frequência e linhas distintas. Atualizar mantém chave e
 | `dados/` | Texto e entradas das demonstrações |
 | `resultados/` | Saídas dos testes, médias e análise |
 | `.gitignore` | Executáveis e objetos gerados que não entram no Git |
-| `slides/apresentacao.tex`, `slides/apresentacao.pdf` | Fonte LaTeX Beamer e apresentação final |
+| `slides/main.tex`, `slides/main.pdf` | Fonte LaTeX Beamer e apresentação final |
 
 O roteiro manual cobre os oito casos aplicáveis, com tabela vazia e cheia
 separadas. Redimensionamento não se aplica a E1.1. Use a opção 6 para evidenciar
